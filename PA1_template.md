@@ -18,7 +18,7 @@ if(!file.exists('activity.csv')){
 actdata <- read.csv('activity.csv')
 ```
 
-##### 2. transform interval data
+##### 2. Transform the interval data
 
 ```{r}
 #actdata$interval <- strptime(gsub("([0-9]{1,2})([0-9]{2})", "\\1:\\2", actdata$interval), format='%H:%M')
