@@ -26,7 +26,7 @@ actdata <- read.csv('activity.csv')
 
 -----
 
-## mean total number of steps taken per day.
+## Mean total number of steps taken per day.
 
 ```{r}
 steps_per_day <- tapply(actdata$steps, actdata$date, sum, na.rm=TRUE)
