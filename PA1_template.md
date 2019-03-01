@@ -123,7 +123,8 @@ steps_per_day_median_imputed <- median(steps_each_day_imputed)
 #####"weekend" indicating whether a given date is a weekday or weekend.
 
 ```{r}
-activityData_imputed$dateType <- ifelse(as.POSIXlt(activityData_imputed$date)$wday %in% c(0,6), 'weekend', 'weekday')
+activityData_imputed$dateType <- ifelse(as.POSIXlt(activityData_imputed$date)
+                                                  $wday %in% c(0,6), 'weekend', 'weekday')
 ```
 
 ##### 2. Panel plot containing a time series plot
