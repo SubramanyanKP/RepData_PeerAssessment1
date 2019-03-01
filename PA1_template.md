@@ -40,7 +40,7 @@ qplot(steps_per_day, xlab='Total steps per day', ylab='Frequency using bin width
 
 ![plot of chunk unnamed-chunk-5](figure/unnamedchunk-5-1.png)
 
-##### 2. Mean and median total number of steps taken per day
+##### 2. Mean and median of total number of steps taken per day
 
 ```{r}
 steps_mean_per_day <- mean(steps_per_day)
