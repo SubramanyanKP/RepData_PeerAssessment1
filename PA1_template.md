@@ -101,7 +101,8 @@ activityData_imputed$steps <- impute(actdata$steps, fun=mean)
 
 ```{r}
 steps_each_day_imputed <- tapply(activityData_imputed$steps, activityData_imputed$date, sum)
-qplot(steps_each_day_imputed, xlab='Total imputed steps per day', ylab='Frequency using bin-width : 500', binwidth=500)
+qplot(steps_each_day_imputed, xlab='Total imputed steps per day',
+                              ylab='Frequency using bin-width : 500', binwidth=500)
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamedchunk-12-1.png)
@@ -122,7 +123,7 @@ steps_per_day_median_imputed <- median(steps_each_day_imputed)
 #####"weekend" indicating whether a given date is a weekday or weekend.
 
 ```{r}
-activityData_imputed$dateType <-  ifelse(as.POSIXlt(activityData_imputed$date)$wday %in% c(0,6), 'weekend', 'weekday')
+activityData_imputed$dateType <- ifelse(as.POSIXlt(activityData_imputed$date)$wday %in% c(0,6), 'weekend', 'weekday')
 ```
 
 ##### 2. Panel plot containing a time series plot
