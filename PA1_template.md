@@ -120,8 +120,7 @@ steps_per_day_median_imputed <- median(steps_each_day_imputed)
 ----
 
 ## Are there differences in activity patterns between weekdays and weekends?
-##### 1. Create a new factor variable in the dataset with two levels "weekday" and
-#####"weekend" indicating whether a given date is a weekday or weekend.
+##### 1. Create a new factor variable in the dataset with two levels "weekday" and "weekend" indicating whether a given date is a weekday or weekend.
 
 ```{r}
 activityData_imputed$dateType <- ifelse(as.POSIXlt(activityData_imputed$date)
