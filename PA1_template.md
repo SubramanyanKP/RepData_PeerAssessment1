@@ -113,7 +113,7 @@ qplot(steps_each_day_imputed, xlab='Total imputed steps per day',
 ```{r}
 steps_per_day_mean_imputed <- mean(steps_each_day_imputed)
 steps_per_day_median_imputed <- median(steps_each_day_imputed)
-
+```
 * Mean (Imputed): 1.0766189 &times; 10<sup>4</sup>
 * Median (Imputed):  1.0766189 &times; 10<sup>4</sup>
 
