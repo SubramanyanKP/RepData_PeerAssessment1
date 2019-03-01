@@ -2,8 +2,8 @@
 # Reproducible Research: Peer Assessment 1
 
 
-## Load and process the data
-##### 1. Load the data 
+## Load and process the data.
+##### 1. Load the data. 
 
 ```{r, echo=FALSE, results='hide', warning=FALSE, message=FALSE}
 library(ggplot2)
@@ -18,7 +18,7 @@ if(!file.exists('activity.csv')){
 actdata <- read.csv('activity.csv')
 ```
 
-##### 2. Transform the interval data
+##### 2. Transform the interval data.
 
 ```{r}
 #actdata$interval <- strptime(gsub("([0-9]{1,2})([0-9]{2})", "\\1:\\2", actdata$interval), format='%H:%M')
@@ -32,7 +32,7 @@ actdata <- read.csv('activity.csv')
 steps_per_day <- tapply(actdata$steps, actdata$date, sum, na.rm=TRUE)
 ```
 
-##### 1. Histogram of the total number of steps taken each day
+##### 1. Histogram for the total number of steps taken each day.
 
 ```{r}
 qplot(steps_per_day, xlab='Total steps per day', ylab='Frequency using bin width : 500', binwidth=500)
@@ -40,7 +40,7 @@ qplot(steps_per_day, xlab='Total steps per day', ylab='Frequency using bin width
 
 ![plot of chunk unnamed-chunk-5](figure/unnamedchunk-5-1.png)
 
-##### 2. Mean and median of total number of steps taken per day
+##### 2. Mean and Median of total number of steps taken per day.
 
 ```{r}
 steps_mean_per_day <- mean(steps_per_day)
@@ -58,7 +58,7 @@ avgesteps_per_timeblock <- aggregate(x=list(meanSteps=actdata$steps),
                                            by=list(interval=actdata$interval), FUN=mean, na.rm=TRUE)
 ```
 
-##### 1. Plot for Time Series
+##### 1. Plot for Time Series.
 
 ```{r}
 ggplot(data=avgesteps_per_timeblock, aes(x=interval, y=meanSteps)) +
@@ -81,7 +81,7 @@ time_for_most_steps <-  gsub("([0-9]{1,2})([0-9]{2})", "\\1:\\2", avgesteps_per_
 ----
 
 ## Missing values
-##### 1. The total number of missing values in the dataset 
+##### 1. The total number of missing values in the dataset. 
 
 ```{r}
 number_of_missing_values <- length(which(is.na(actdata$steps)))
@@ -98,7 +98,7 @@ activityData_imputed <- actdata
 activityData_imputed$steps <- impute(actdata$steps, fun=mean)
 ```
 
-##### 4. Histogram for the total number of steps taken each day 
+##### 4. Histogram for the total number of steps taken each day. 
 
 ```{r}
 steps_each_day_imputed <- tapply(activityData_imputed$steps, activityData_imputed$date, sum)
@@ -108,7 +108,7 @@ qplot(steps_each_day_imputed, xlab='Total imputed steps per day',
 
 ![plot of chunk unnamed-chunk-12](figure/unnamedchunk-12-1.png)
 
-##### ... Calculate and report the mean and median total number of steps taken per day. 
+##### ... Calculate and report the Mean and Median of total number of steps taken per day. 
 
 ```{r}
 steps_per_day_mean_imputed <- mean(steps_each_day_imputed)
@@ -127,7 +127,7 @@ activityData_imputed$dateType <- ifelse(as.POSIXlt(activityData_imputed$date)
                                                   $wday %in% c(0,6), 'weekend', 'weekday')
 ```
 
-##### 2. Panel plot containing a time series plot
+##### 2. Panel plot containing a time series plot.
 
 ```{r}
 avgd_activity_DataImputed <- aggregate(steps ~ interval + dateType, data=activityData_imputed, mean)
