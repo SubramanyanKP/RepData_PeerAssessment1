@@ -54,7 +54,8 @@ steps_median_per_day <- median(steps_per_day)
 ## Average daily activity pattern?
 
 ```{r}
-avgesteps_per_timeblock <- aggregate(x=list(meanSteps=actdata$steps), by=list(interval=actdata$interval), FUN=mean, na.rm=TRUE)
+avgesteps_per_timeblock <- aggregate(x=list(meanSteps=actdata$steps),
+                                           by=list(interval=actdata$interval), FUN=mean, na.rm=TRUE)
 ```
 
 ##### 1. Plot for Time Series
