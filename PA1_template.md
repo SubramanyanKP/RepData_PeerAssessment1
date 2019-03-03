@@ -42,7 +42,7 @@ gplot1a+geom_histogram(boundary=0, binwidth=1500, col="Darkblue", fill="lightblu
 +ylab("Frequency using bin width : 1500")+theme(plot.title = element_text(face="bold", size=14))
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamedchunk-5-1.png)
+![plot of chunk unnamed-chunk-5](Figure/unnamedchunk-5-1.png)
 
 ##### 2. Mean and median of total number of steps taken per day?
 
@@ -70,7 +70,7 @@ timeseriesplot1+geom_line(col="Magenta")+ggtitle("Average steps per time interva
 +xlab("Time")+ylab("Steps")+theme(plot.title = element_text(face="bold", size=12))
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamedchunk-8-1.png)
+![plot of chunk unnamed-chunk-8](Figure/unnamedchunk-8-1.png)
 
 ##### 2. Five Minute Interval on average across all the days in the dataset that contains
 ##### the maximum number of steps?
@@ -115,7 +115,7 @@ totinpstep+geom_histogram(boundary=0, binwidth=1500, col="darkblue", fill="light
 +theme(plot.title = element_text(face="bold", size=14))
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamedchunk-12-1.png)
+![plot of chunk unnamed-chunk-12](Figure/unnamedchunk-12-1.png)
 
 ##### ... Calculate and report the mean and median total number of steps taken per day. 
 
@@ -146,4 +146,4 @@ ggplot(avgd_activity_DataImputed,aes(interval, steps, color= DayType)) + geom_li
 + ylab("Avarage number of steps")+geom_path(inherit.aes = TRUE)
 ```
 
-![plot of chunk unnamed-chunk-15](figure/unnamedchunk-15-1.png)
+![plot of chunk unnamed-chunk-15](Figure/unnamedchunk-15-1.png)
