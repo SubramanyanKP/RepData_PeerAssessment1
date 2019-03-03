@@ -50,8 +50,8 @@ gplot1a+geom_histogram(boundary=0, binwidth=1500, col="Darkblue", fill="lightblu
 steps_mean_per_day <- mean(steps_per_day$Steps , na.rm = TRUE)
 steps_median_per_day <- median(steps_per_day$Steps, na.rm = TRUE)
 ```
-* Mean: `r steps_mean_per_day` 
-* Median: `r steps_median_per_day`
+* Mean: 9354.2295082
+* Median: 10395
 
 -----
 
