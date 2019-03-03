@@ -37,7 +37,9 @@ colnames(steps_per_day) <- c("Date", "Steps")
 
 ```{r Plot the histogram for the total number of steps taken each day}
 gplot1a <- ggplot(steps_per_day, aes(Steps))
-gplot1a+geom_histogram(boundary=0, binwidth=1500, col="Darkblue", fill="lightblue")+ggtitle("Histogram for the total number of steps taken each day")+xlab("Total steps per day")+ylab("Frequency using bin width : 1500")+theme(plot.title = element_text(face="bold", size=14))
+gplot1a+geom_histogram(boundary=0, binwidth=1500, col="Darkblue", fill="lightblue")
++ggtitle("Histogram for the total number of steps taken each day")+xlab("Total steps per day")
++ylab("Frequency using bin width : 1500")+theme(plot.title = element_text(face="bold", size=14))
 ```
 
 ![plot of chunk unnamed-chunk-5](figure/unnamedchunk-5-1.png)
@@ -70,7 +72,8 @@ timeseriesplot1+geom_line(col="Magenta")+ggtitle("Average steps per time interva
 
 ![plot of chunk unnamed-chunk-8](figure/unnamedchunk-8-1.png)
 
-##### 2. Five Minute Interval on average across all the days in the dataset that contains the maximum number of steps?
+##### 2. Five Minute Interval on average across all the days in the dataset that contains
+##### the maximum number of steps?
 
 ```{r Calculate the Five Minute Interval on average across all the days in the dataset}
 most_steps <- which.max(avgesteps_per_timeblock$meanSteps)
@@ -106,7 +109,10 @@ activityData_imputed$steps <- impute(actdata$steps, fun=mean)
 steps_each_day_imputed <- aggregate(activityData_imputed$steps, list(activityData_imputed$date), FUN=sum)
 colnames(steps_each_day_imputed) <- c("Date", "Steps")
 totinpstep <- ggplot(steps_each_day_imputed, aes(Steps))
-totinpstep+geom_histogram(boundary=0, binwidth=1500, col="darkblue", fill="lightblue")+ggtitle("Histogram for the total number of steps taken each day (Imputed)")+xlab("Total steps per day (Imputed)")+ylab("Frequency using bin-width : 1500")+theme(plot.title = element_text(face="bold", size=14))
+totinpstep+geom_histogram(boundary=0, binwidth=1500, col="darkblue", fill="lightblue")
++ggtitle("Histogram for the total number of steps taken each day (Imputed)")
++xlab("Total steps per day (Imputed)")+ylab("Frequency using bin-width : 1500")
++theme(plot.title = element_text(face="bold", size=14))
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamedchunk-12-1.png)
@@ -123,7 +129,8 @@ steps_per_day_median_imputed <- median(steps_each_day_imputed$Steps)
 ----
 
 ## Are there differences in activity patterns between weekdays and weekends?
-##### 1. Create a new factor variable in the dataset with two levels "weekday" and "weekend" indicating whether a given date is a weekday or weekend.
+##### 1. Create a new factor variable in the dataset with two levels "weekday" and "weekend"
+##### indicating whether a given date is a weekday or weekend.
 
 
 ```{r}
@@ -134,7 +141,9 @@ activityData_imputed$DayType <- ifelse(as.POSIXlt(activityData_imputed$date)$wda
 
 ```{r Differences in activity patterns between weekdays and weekends}
 avgd_activity_DataImputed <- aggregate(steps ~ interval + DayType, data=activityData_imputed, mean)
-ggplot(avgd_activity_DataImputed,aes(interval, steps, color= DayType)) + geom_line() + facet_grid(DayType ~ .) +ggtitle("Plot for difference in activity patterns between weekdays and weekends")+xlab("5 Minute Interval") + ylab("Avarage number of steps")+geom_path(inherit.aes = TRUE)
+ggplot(avgd_activity_DataImputed,aes(interval, steps, color= DayType)) + geom_line() + facet_grid(DayType ~ .)
++ggtitle("Plot for difference in activity patterns between weekdays and weekends")+xlab("5 Minute Interval")
++ ylab("Avarage number of steps")+geom_path(inherit.aes = TRUE)
 ```
 
 ![plot of chunk unnamed-chunk-15](figure/unnamedchunk-15-1.png)
